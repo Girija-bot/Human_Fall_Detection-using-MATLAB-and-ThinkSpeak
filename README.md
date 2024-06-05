@@ -8,3 +8,5 @@ Foreground and blob detection: Foreground to isolate moving objects from the bac
 Motion History Image: MHI is created and updated with each frame to track the movement speed and direction.
 Fall detection: fall detects by analyzing the horizontal motion in MHI
 Data transmission to thinkspeak: This shows the frame number and speed of motion I put a limit of 0 to 100, which enables remote monitoring and logging of it
+
+
