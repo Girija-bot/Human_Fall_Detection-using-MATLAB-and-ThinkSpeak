@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fall Detection Status</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Fall Detection System</h1>
+    <div>
+        <p>Frame Number: <span id="frame-number">Loading...</span></p>
+        <p>Fall Detected: <span id="fall-detected">Loading...</span></p>
+    </div>
+    <script>
+        function fetchStatus() {
+            $.ajax({
+                url: '/status',
+                method: 'GET',
+                success: function(data) {
+                    $('#frame-number').text(data.frame_number);
+                    $('#fall-detected').text(data.fall_detected ? 'Yes' : 'No');
+
+                    if (data.fall_detected) {
+                        alert('Fall detected!');
+                    }
+                },
+                error: function(error) {
+                    console.error('Error fetching status:', error);
+                    $('#frame-number').text('Error');
+                    $('#fall-detected').text('Error');
+                }
+            });
+        }
+
+        $(document).ready(function() {
+            fetchStatus();
+            setInterval(fetchStatus, 1000); // Refresh every second
+        });
+    </script>
+</body>
+</html>
