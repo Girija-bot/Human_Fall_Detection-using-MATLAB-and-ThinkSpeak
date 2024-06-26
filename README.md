@@ -21,7 +21,6 @@ making it efficient for quick exchanges without the overhead of establishing
 connections.
 Simple message format: CoAP messages follow a request-response model similar
 to HTTP, but with a simplified structure for faster processing.
-21
 Flexibility: CoAP offers support for multicast communication, allowing a single
 message to reach multiple devices simultaneously, which is useful in sensor
 networks.
